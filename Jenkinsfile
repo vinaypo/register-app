@@ -49,8 +49,8 @@ pipeline {
         IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}"
         RELEASE_VERSION = "1.0.0"
         IMAGE_TAG = "${IMAGE_NAME}:${RELEASE_VERSION}"
-        DOCKER_PASS= "dockerhub"
-      }
+        DOCKER_PASS= credentialsId('dockerhub')
+        }
       steps {
         script {
           docker.withRegistry('', DOCKER_PASS) {
