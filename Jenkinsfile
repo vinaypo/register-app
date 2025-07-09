@@ -35,5 +35,33 @@ pipeline {
         }
       }
     }
+    stage ("Quality Gate") {
+      steps {
+        script {
+          waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube'
+        }
+      }
+    }
+    stage ("Build and Push Docker Image") {
+        environment {
+        APP_NAME= "register-app-pipeline"
+        DOCKER_USER= "vinay2806"
+        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}"
+        RELEASE_VERSION = "1.0.0"
+        IMAGE_TAG = "${IMAGE_NAME}:${RELEASE_VERSION}"
+        DOCKER_PASS= "dockerhub"
+      }
+      steps {
+        script {
+          docker.withRegistry('', DOCKER_PASS) {
+            docker_image = docker.build("${IMAGE_NAME}")
+          }
+          docker.withRegistry('', DOCKER_PASS) {
+            docker_image.push("${IMAGE_TAG}")
+            docker_image.push("latest")
+          }
+        }
+      }
+    }
   }
 }
