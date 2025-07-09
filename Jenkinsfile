@@ -47,8 +47,7 @@ pipeline {
         APP_NAME= "register-app-pipeline"
         DOCKER_USER= "vinay2806"
         IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}"
-        RELEASE_VERSION = "1.0.0"
-        IMAGE_TAG = "${IMAGE_NAME}:${RELEASE_VERSION}"
+        IMAGE_TAG = "${BUILD_NUMBER}"
         }
       steps {
         script {
