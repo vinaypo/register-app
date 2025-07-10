@@ -62,7 +62,7 @@ pipeline {
     stage ("Trivy Scan") {
       steps {
         script {
-          sh ('docker run  -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest vinay2806/register-app-pipeline:latest --severity HIGH,CRITICAL --exit-code 0 --no-progress')
+          sh ('docker run  -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest vinay2806/register-app-pipeline:latest --no-progress --scanners vuln --exit-code 0  --severity HIGH,CRITICAL --format table')
         }
       }
     }
