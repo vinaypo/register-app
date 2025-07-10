@@ -4,6 +4,12 @@ pipeline {
     jdk 'Java17'
     maven 'Maven3'
   }
+  environment {
+    APP_NAME= "register-app-pipeline"
+    DOCKER_USER= "vinay2806"
+    IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}"
+    IMAGE_TAG = "${BUILD_NUMBER}"
+  }
   stages {
     stage ("Clean Workspace") {
       steps {
@@ -43,12 +49,6 @@ pipeline {
       }
     }
     stage ("Build and Push Docker Image") {
-        environment {
-        APP_NAME= "register-app-pipeline"
-        DOCKER_USER= "vinay2806"
-        IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}"
-        IMAGE_TAG = "${BUILD_NUMBER}"
-        }
       steps {
         script {
           withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
