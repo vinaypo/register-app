@@ -54,6 +54,7 @@
         .arch-component {
             text-align: center;
             margin: 0 15px;
+            width: 20%;
         }
         .arch-icon {
             width: 80px;
@@ -64,7 +65,8 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 15px;
-            font-size: 36px;
+            font-size: 24px;
+            font-weight: bold;
         }
         .arrow {
             display: flex;
@@ -90,8 +92,13 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
         .tech-icon {
-            font-size: 40px;
+            font-size: 24px;
+            font-weight: bold;
             margin-bottom: 10px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         footer {
             text-align: center;
@@ -116,22 +123,22 @@
             
             <div class="architecture">
                 <div class="arch-component">
-                    <div class="arch-icon">📦</div>
+                    <div class="arch-icon">1</div>
                     <h4>Code Repository</h4>
                 </div>
                 <div class="arrow">→</div>
                 <div class="arch-component">
-                    <div class="arch-icon">🛠️</div>
+                    <div class="arch-icon">2</div>
                     <h4>Build System</h4>
                 </div>
                 <div class="arrow">→</div>
                 <div class="arch-component">
-                    <div class="arch-icon">🧪</div>
+                    <div class="arch-icon">3</div>
                     <h4>Testing</h4>
                 </div>
                 <div class="arrow">→</div>
                 <div class="arch-component">
-                    <div class="arch-icon">🚀</div>
+                    <div class="arch-icon">4</div>
                     <h4>Deployment</h4>
                 </div>
             </div>
@@ -143,19 +150,19 @@
             <h2>Technology Stack</h2>
             <div class="tech-grid">
                 <div class="tech-item">
-                    <div class="tech-icon">🐙</div>
+                    <div class="tech-icon">GIT</div>
                     <div>Git</div>
                 </div>
                 <div class="tech-item">
-                    <div class="tech-icon">🔄</div>
+                    <div class="tech-icon">CI/CD</div>
                     <div>CI/CD</div>
                 </div>
                 <div class="tech-item">
-                    <div class="tech-icon">🐳</div>
+                    <div class="tech-icon">DKR</div>
                     <div>Docker</div>
                 </div>
                 <div class="tech-item">
-                    <div class="tech-icon">☸️</div>
+                    <div class="tech-icon">K8S</div>
                     <div>Kubernetes</div>
                 </div>
             </div>
