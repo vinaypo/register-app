@@ -9,6 +9,7 @@ pipeline {
     DOCKER_USER= "vinay2806"
     IMAGE_NAME = "${DOCKER_USER}/${APP_NAME}"
     IMAGE_TAG = "${BUILD_NUMBER}"
+    JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
   }
   stages {
     stage ("Clean Workspace") {
